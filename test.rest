@@ -1,0 +1,9 @@
+@url = http://localhost:4866
+
+
+### GET BASE
+{{url}}
+
+### GET BOOKS
+
+GET {{url}}/books
