@@ -12,4 +12,4 @@ const BooksSchema = new mongoose.Schema(
   { versionKey: false }
 );
 
-export const Books = mongoose.model("books", BooksSchema);
+export const Books = mongoose.model("book", BooksSchema);

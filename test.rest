@@ -5,5 +5,21 @@
 {{url}}
 
 ### GET BOOKS
-
 GET {{url}}/books
+
+
+### GET BOOK
+GET {{url}}/book/62c3fca5997884b0fdda412a
+
+
+### PATCH BOOK
+PATCH {{url}}/book/62c3fca5997884b0fdda412a
+content-type: application/json
+
+{
+"title": "Los 07 hábitos de la gente altamente efectiva",
+"description": "Leí este libro en Inglés en la década de 1990. Tiene muchos buenos consejos para manejar el tiempo y hacer las cosas. Porque estoy aprendiendo español ahora, estoy leyendo este libro de nuevo. El lenguaje es bastante fácil, y estoy leyendo el texto una frase a la vez con mi libro de Inglés.",
+"numberOfPages": 435,
+"imageUrl": "http://edwardtanguay.vercel.app/share/images/books/sieteHabitos.png",
+"buyUrl": "http://www.amazon.es/h%C3%A1bitos-gente-altamente-efectiva-Pr%C3%A1cticos/dp/8449324947"
+}

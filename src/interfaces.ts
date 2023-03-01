@@ -5,4 +5,5 @@ export interface IBook {
   language: string;
   imageUrl: string;
   buyUrl: String;
+  languageText: string;
 }
