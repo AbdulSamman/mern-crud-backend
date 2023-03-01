@@ -9,17 +9,33 @@ GET {{url}}/books
 
 
 ### GET BOOK
-GET {{url}}/book/62c3fca5997884b0fdda412a
+GET {{url}}/book/63ffa18a3eb11c75c87b60c8
 
 
 ### PATCH BOOK
-PATCH {{url}}/book/62c3fca5997884b0fdda412a
+PATCH {{url}}/book/63ff9e0fa1bd080b7165c8e1
 content-type: application/json
 
 {
-"title": "Los 07 hábitos de la gente altamente efectiva",
-"description": "Leí este libro en Inglés en la década de 1990. Tiene muchos buenos consejos para manejar el tiempo y hacer las cosas. Porque estoy aprendiendo español ahora, estoy leyendo este libro de nuevo. El lenguaje es bastante fácil, y estoy leyendo el texto una frase a la vez con mi libro de Inglés.",
-"numberOfPages": 435,
-"imageUrl": "http://edwardtanguay.vercel.app/share/images/books/sieteHabitos.png",
-"buyUrl": "http://www.amazon.es/h%C3%A1bitos-gente-altamente-efectiva-Pr%C3%A1cticos/dp/8449324947"
+"title": "Semiotics for Beginners222",
+"description": "Semiotics is a fascinating topic that goes beyond and combines linguistics, cultural anthropology, social psychology, history, art, and philosophy. It's the study of symbols and signs, or as Locke said, \"the study of all that can fall within the compass of human understanding\". This book by Daniel Chandler is [accessible online](http://visual-memory.co.uk/daniel/Documents/S4B) for free.",
+"imageUrl": "http://edwardtanguay.vercel.app/share/images/books/semiotics.png",
+"buyUrl": "http://visual-memory.co.uk/daniel/Documents/S4B/"
 }
+
+### POST BOOK
+POST {{url}}/book/
+content-type: application/json
+
+{
+"title": "الرحيق المختوم",
+"description": "Semiotics is a fascinating topic that goes beyond and combines linguistics, cultural anthropology, social psychology, history, art, and philosophy. It's the study of symbols and signs, or as Locke said, \"the study of all that can fall within the compass of human understanding\". This book by Daniel Chandler is [accessible online](http://visual-memory.co.uk/daniel/Documents/S4B) for free.",
+"imageUrl": "http://edwardtanguay.vercel.app/share/images/books/semiotics.png",
+"buyUrl": "http://visual-memory.co.uk/daniel/Documents/S4B/",
+"language":"arabic"
+}
+
+
+### DELETE BOOK
+DELETE {{url}}/book/63ffa18a3eb11c75c87b60c8
+

@@ -10,47 +10,63 @@ const MONGODB_CONNECTION =
 mongoose.set("strictQuery", false);
 mongoose.connect(MONGODB_CONNECTION);
 
-export const getBooks = async () => {
-  const rowBooks = await Books.find();
-  const books = [];
-  rowBooks.forEach((rowBook) => {
-    const book = {
-      _id: rowBook._id,
-      title: rowBook.title,
-      description: rowBook.description,
-      imageUrl: rowBook.imageUrl,
-      buyUrl: rowBook.buyUrl,
-      languageText:
-        rowBook.language.charAt(0).toUpperCase() + rowBook.language.slice(1),
-    };
-    books.push(book);
-  });
-  return books;
+const decorateAndSanitizeBook = (rawBook: any) => {
+  const book: IBook = {
+    ...rawBook.toObject({ versionKey: false }),
+    languageText:
+      rawBook.language.charAt(0).toUpperCase() + rawBook.language.slice(1),
+  };
+  return book;
 };
 
-export const getBook = (id: string) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const book: IBook = await Books.findOne({ _id: id });
-      resolve({
-        status: "success",
-        message: book,
-      });
-    } catch (error) {
-      reject({
-        status: "error",
-        message: error.message,
-      });
-    }
-  });
+export const getBooks = async () => {
+  try {
+    const rawBooks = await Books.find();
+    const books: IBook[] = [];
+    rawBooks.forEach((rawBook) => {
+      books.push(decorateAndSanitizeBook(rawBook));
+    });
+    return books;
+  } catch (error) {
+    throw new Error(`${error.message}`);
+  }
+};
+
+export const getBook = async (id: string) => {
+  try {
+    const rawBook = await Books.findOne({ _id: id });
+    const book = decorateAndSanitizeBook(rawBook);
+    return book;
+  } catch (error) {
+    throw new Error(`${error.message}`);
+  }
+};
+
+export const addBook = async (book: IBook) => {
+  try {
+    const newBook = await Books.create(book);
+    return { newId: newBook._id, newBook };
+  } catch (error) {
+    throw new Error(`${error.message}`);
+  }
 };
 
 export const editBook = async (id: string, oldBook: IBook) => {
   try {
-    const oldOne = await Books.findOne({ _id: id });
+    const oldOne = await Books.find({ _id: id });
     await Books.updateOne({ _id: id }, { $set: { ...oldBook } });
-    const newOne = await Books.findOne({ _id: id });
+    const newOne = await Books.find({ _id: id });
     return { oldOne, newOne };
+  } catch (error) {
+    throw new Error(`${error.message}`);
+  }
+};
+
+export const deleteBook = async (_id: string) => {
+  try {
+    const deletedBook = await Books.deleteOne({ _id });
+
+    return `${deletedBook} with ${_id} has been deleted`;
   } catch (error) {
     throw new Error(`${error.message}`);
   }
