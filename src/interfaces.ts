@@ -6,7 +6,7 @@ export interface INewBook {
   imageUrl: string;
   buyUrl: String;
 }
-export interface IBook {
+export interface IBook extends INewBook {
   _id: String;
   languageText: string;
 }

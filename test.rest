@@ -9,33 +9,54 @@ GET {{url}}/books
 
 
 ### GET BOOK
-GET {{url}}/book/63ffa18a3eb11c75c87b60c8
+GET {{url}}/book/6400bcd0d226553293499219
 
 
 ### PATCH BOOK
-PATCH {{url}}/book/63ff9e0fa1bd080b7165c8e1
+PATCH {{url}}/book/62c3fca5997884b0fdda4126
 content-type: application/json
 
 {
-"title": "Semiotics for Beginners222",
-"description": "Semiotics is a fascinating topic that goes beyond and combines linguistics, cultural anthropology, social psychology, history, art, and philosophy. It's the study of symbols and signs, or as Locke said, \"the study of all that can fall within the compass of human understanding\". This book by Daniel Chandler is [accessible online](http://visual-memory.co.uk/daniel/Documents/S4B) for free.",
-"imageUrl": "http://edwardtanguay.vercel.app/share/images/books/semiotics.png",
-"buyUrl": "http://visual-memory.co.uk/daniel/Documents/S4B/"
+"title": "The Age of American Unreason222",
+"description": "Having grown up in America and having lived in Berlin, Germany for over two decades, I have noticed a rift between the two cultures in terms of the average level of *Bildung* (education and cultivation), and since I am raising two American/German children who are growing up in the German culture, I am reading this book to better understand the causes for the higher degree of anti-intellectualism, consumerism, scientific ignorance, and religious superstition that is found in American society.",
+"imageUrl": "http://edwardtanguay.vercel.app/share/images/books/unreason.png",
+"buyUrl": "http://www.amazon.com/The-American-Unreason-Susan-Jacoby/dp/1400096383",
+"language":"english"
 }
 
 ### POST BOOK
 POST {{url}}/book/
 content-type: application/json
 
+
 {
-"title": "الرحيق المختوم",
-"description": "Semiotics is a fascinating topic that goes beyond and combines linguistics, cultural anthropology, social psychology, history, art, and philosophy. It's the study of symbols and signs, or as Locke said, \"the study of all that can fall within the compass of human understanding\". This book by Daniel Chandler is [accessible online](http://visual-memory.co.uk/daniel/Documents/S4B) for free.",
-"imageUrl": "http://edwardtanguay.vercel.app/share/images/books/semiotics.png",
-"buyUrl": "http://visual-memory.co.uk/daniel/Documents/S4B/",
-"language":"arabic"
+"title": "Added - test.rest 111", "description": "lorem ipsum dolor sit amet, consectetur, lorem ipsum dolor sit amet, lorem ipsum dolor sit amet", "numberOfPages": 999, "language": "english", "imageUrl": "", "buyUrl": ""
 }
+
 
 
 ### DELETE BOOK
 DELETE {{url}}/book/63ffa18a3eb11c75c87b60c8
 
+
+### POST PASSWORD SUCCESFULL LOGIN 
+POST {{url}}/login/
+content-type: application/json
+
+{
+"password":"123"
+}
+
+### POST PASSWORD BAD LOGIN 
+POST {{url}}/login/
+content-type: application/json
+
+{
+"password":"asdd"
+}
+
+### GET CURRENT USER
+GET {{url}}/get-current-user
+
+### LOGOUT 
+GET {{url}}/logout
